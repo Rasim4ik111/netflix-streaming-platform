@@ -8,7 +8,7 @@ export async function GET() {
       interval = setInterval(() => {
         const data = `data: ${JSON.stringify({ viewers: Math.floor(Math.random() * 10000) })}\n\n`;
         controller.enqueue(new TextEncoder().encode(data));
-      }, 1000);
+      }, 100000);
     },
     cancel() {
       clearInterval(interval);
