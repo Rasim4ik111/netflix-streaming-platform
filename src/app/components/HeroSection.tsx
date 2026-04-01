@@ -15,7 +15,14 @@ const GeoInfo = () => {
   useEffect(() => {
     fetch("/api/geo")
       .then((res) => res.json())
-      .then((data) => setGeoData(data));
+      .then((data) => {
+        setGeoData({
+          city: data.city || "Unknown",
+          country: data.country || "Unknown",
+          region: data.region || "Unknown",
+          nearestServer: data.nearestServer || "Unknown",
+        });
+      });
   }, []);
 
   if (!geoData) return <p>Loading...</p>;
