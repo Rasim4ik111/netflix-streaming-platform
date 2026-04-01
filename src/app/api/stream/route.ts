@@ -6,9 +6,9 @@ export async function GET() {
   const stream = new ReadableStream({
     start(controller) {
       interval = setInterval(() => {
-        const data = `data: ${JSON.stringify({ viewers: Math.floor(Math.random() * 10000) })}\n\n`;
+        const data = `data: ${JSON.stringify({ viewers: Math.floor(Math.random() * 100) })}\n\n`;
         controller.enqueue(new TextEncoder().encode(data));
-      }, 100000);
+      }, 1000);
     },
     cancel() {
       clearInterval(interval);

@@ -1,20 +1,16 @@
 import { Suspense } from "react";
-import { MovieCard } from "./components/MovieCard";
-import { MovieSkeleton } from "./components/MovieSkeleton";
-import { LiveFeed } from "./components/LiveFeed";
+import MoviesGrid from "./components/MoviesGrid";
+import { Header } from "./layout/Header";
+
 export default function Home() {
   return (
-    <div className="flex flex-wrap mt-10 justify-center">
-      <MovieSkeleton />
-      <MovieSkeleton />
-      <MovieSkeleton />
-      <MovieSkeleton />
-      <MovieSkeleton />
-      <MovieSkeleton />
-      <MovieSkeleton />
-      <MovieSkeleton />
-      <MovieSkeleton />
-      <MovieSkeleton />
+    <div>
+      <Header />
+      <main className="flex justify-center mt-10">
+        <Suspense fallback={""}>
+          <MoviesGrid />
+        </Suspense>
+      </main>
     </div>
   );
 }

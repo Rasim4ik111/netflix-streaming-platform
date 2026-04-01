@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-interface Movie {
+export interface Movie {
   id: number;
   title: string;
   poster_path: string; // например "/abc123.jpg"
@@ -16,12 +16,13 @@ export const MovieCard = ({
   release_date,
 }: Movie) => {
   return (
-    <div>
+    <div className="m-3">
       <Image
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
         alt="Poster Image"
         width={300}
         height={300}
+        className="w-full h-auto"
       />
       <p>{title}</p>
       <p>{vote_average}</p>
