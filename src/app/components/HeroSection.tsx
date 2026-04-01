@@ -2,8 +2,16 @@
 
 import { useEffect, useState } from "react";
 
+type GeoData = {
+  city: string;
+  country: string;
+  region: string;
+  nearestServer: string;
+};
+ы;
+
 const GeoInfo = () => {
-  const [geoData, setGeoData] = useState(null);
+  const [geoData, setGeoData] = useState<GeoData | null>(null);
 
   useEffect(() => {
     fetch("/api/geo")
