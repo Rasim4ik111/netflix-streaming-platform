@@ -9,7 +9,6 @@ export default function Home() {
     <div>
       <Header />
       <HeroSection />
-
       <main className="flex justify-center mt-10">
         <Suspense fallback={<MovieSkeleton />}>
           <MoviesGrid />
