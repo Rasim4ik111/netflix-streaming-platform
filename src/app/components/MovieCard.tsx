@@ -16,7 +16,7 @@ export const MovieCard = ({
   release_date,
 }: Movie) => {
   return (
-    <div className="m-3">
+    <div className="cursor-pointer overflow-hidden rounded-lg transform transition duration-300 hover:scale-105 m-3">
       <Image
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
         alt="Poster Image"
