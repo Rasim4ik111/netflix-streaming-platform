@@ -8,7 +8,6 @@ type GeoData = {
   region: string;
   nearestServer: string;
 };
-ы;
 
 const GeoInfo = () => {
   const [geoData, setGeoData] = useState<GeoData | null>(null);
