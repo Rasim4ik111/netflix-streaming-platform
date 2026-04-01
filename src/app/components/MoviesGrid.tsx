@@ -1,7 +1,7 @@
 import { MovieCard, type Movie } from "./MovieCard";
 
 export default async function MoviesGrid() {
-  const response = await fetch("http://localhost:3000/api/movies");
+  const response = await fetch("/api/movies");
   const data = await response.json();
 
   return (

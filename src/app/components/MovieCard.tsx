@@ -3,9 +3,9 @@ import Image from "next/image";
 export interface Movie {
   id: number;
   title: string;
-  poster_path: string; // например "/abc123.jpg"
+  poster_path: string;
   vote_average: number;
-  release_date: string; // "2023-05-12"
+  release_date: string;
 }
 
 export const MovieCard = ({
