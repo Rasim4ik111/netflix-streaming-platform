@@ -15,6 +15,10 @@ export default async function MoviesGrid() {
 
   const data = await response.json();
 
+  if (!data.results) {
+    return <p>Failed to load movies</p>;
+  }
+
   return (
     <div className="flex flex-wrap justify-center">
       {data.results.map((movie: Movie) => (
