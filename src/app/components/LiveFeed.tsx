@@ -6,7 +6,9 @@ export const LiveFeed = () => {
   const [viewers, setViewers] = useState(0);
 
   useEffect(() => {
-    const eventSource = new EventSource("/api/stream");
+    const eventSource = new EventSource(
+      `${process.env.NEXT_PUBLIC_URL}/api/stream`,
+    );
 
     eventSource.onmessage = (event) => {
       const data = JSON.parse(event.data);

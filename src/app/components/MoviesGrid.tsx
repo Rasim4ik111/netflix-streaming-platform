@@ -3,7 +3,7 @@ export const dynamic = "force-dynamic";
 import { MovieCard, type Movie } from "./MovieCard";
 
 export default async function MoviesGrid() {
-  const response = await fetch("/api/movies", {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/movies`, {
     cache: "no-store",
   });
   const data = await response.json();
