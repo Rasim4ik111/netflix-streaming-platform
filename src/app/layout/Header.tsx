@@ -4,7 +4,7 @@ import { LiveFeed } from "../components/LiveFeed";
 
 export const Header = () => {
   return (
-    <header className="flex justify-between items-center bg-gray-900 p-15 h-[50px]">
+    <header className="flex justify-between items-center bg-gray-900 p-15 h-12.5">
       <Link href={"./"}>
         <Image
           src="/logo.png"
