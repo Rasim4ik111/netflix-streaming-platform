@@ -14,11 +14,18 @@ export async function GET(request: Request) {
     nearestServer = "Asia";
   }
 
-  return Response.json({
-    country,
-    city,
-    region,
-    nearestServer,
-    timestamp: new Date().toISOString(),
-  });
+  return Response.json(
+    {
+      country,
+      city,
+      region,
+      nearestServer,
+      timestamp: new Date().toISOString(),
+    },
+    {
+      headers: {
+        "Cache-Control": "public, max-age=3600",
+      },
+    },
+  );
 }
