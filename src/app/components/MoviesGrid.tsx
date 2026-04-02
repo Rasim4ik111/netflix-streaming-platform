@@ -1,11 +1,17 @@
-export const dynamic = "force-dynamic";
-
+import { headers } from "next/headers";
 import { MovieCard, type Movie } from "./MovieCard";
 
+export const dynamic = "force-dynamic";
+
 export default async function MoviesGrid() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/movies`, {
+  const headersList = headers();
+  const host = (await headersList).get("host");
+  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+
+  const response = await fetch(`${protocol}://${host}/api/movies`, {
     cache: "no-store",
   });
+
   const data = await response.json();
 
   return (

@@ -22,6 +22,14 @@ const GeoInfo = () => {
           region: data.region || "Unknown",
           nearestServer: data.nearestServer || "Unknown",
         });
+      })
+      .catch(() => {
+        setGeoData({
+          city: "Error",
+          country: "Error",
+          region: "Error",
+          nearestServer: "Error",
+        });
       });
   }, []);
 

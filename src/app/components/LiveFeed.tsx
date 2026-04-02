@@ -6,13 +6,20 @@ export const LiveFeed = () => {
   const [viewers, setViewers] = useState(0);
 
   useEffect(() => {
-    const eventSource = new EventSource(
-      `${process.env.NEXT_PUBLIC_URL}/api/stream`,
-    );
+    const eventSource = new EventSource("/api/stream");
 
     eventSource.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      setViewers(data.viewers);
+      try {
+        const data = JSON.parse(event.data);
+        setViewers(data.viewers);
+      } catch (e) {
+        console.error("Invalid SSE data", e);
+      }
+    };
+
+    eventSource.onerror = (err) => {
+      console.error("SSE error:", err);
+      eventSource.close();
     };
 
     return () => {
